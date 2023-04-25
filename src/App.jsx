@@ -5,15 +5,19 @@ import {
   RouterProvider,
   Route,
 } from "react-router-dom";
-import Login from "./pages/Login";
-import Dashboard from "./pages/Dashboard";
+import { Login, DashboardLayout } from "./pages";
+import { Chat, Home } from "./components";
 
 // routes
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path="/login" element={<Login />} />
-      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/dashboard" element={<DashboardLayout />}>
+        <Route path="inicio" element={<Home />} />
+        <Route path="chat" element={<Chat />} />
+      </Route>
+      <Route path="/logout" element={<div>Logout</div>} />
     </>
   )
 );
