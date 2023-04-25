@@ -21,4 +21,4 @@ setupListeners(store.dispatch);
 
 export * from "./apis/authApi";
 export * from "./apis/chatApi";
-export { setPassword, setUsername } from "./slices/formSlice";
+export { setPassword, setUsername, reset } from "./slices/formSlice";
