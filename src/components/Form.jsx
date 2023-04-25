@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { setUsername, setPassword } from "../store";
+import { setUsername, setPassword, reset } from "../store";
 
 const Form = ({ action }) => {
   const { username, password } = useSelector((state) => {
@@ -14,6 +14,7 @@ const Form = ({ action }) => {
     localStorage.setItem("username", username);
     localStorage.setItem("password", password);
     action({ username, password });
+    dispatch(reset());
   };
 
   return (
