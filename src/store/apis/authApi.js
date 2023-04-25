@@ -3,16 +3,22 @@ import { BASE_URL } from "../../config/config";
 
 const authApi = createApi({
   reducerPath: "auth",
-  baseQuery: fetchBaseQuery({ baseUrl: BASE_URL }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: BASE_URL,
+  }),
   endpoints: (builder) => {
     return {
-      login: builder.query({
+      login: builder.mutation({
         query: (credentials) => {
           return {
             url: "/testing",
             method: "POST",
+            redirect: "follow",
+            headers: {
+              "Content-Type": "application/json",
+            },
             body: {
-              username: credentials.username,
+              user: credentials.username,
               password: credentials.password,
             },
           };
@@ -23,5 +29,5 @@ const authApi = createApi({
   },
 });
 
-export const { useLoginQuery } = authApi;
+export const { useLoginMutation } = authApi;
 export { authApi };

@@ -14,7 +14,7 @@ const chatApi = createApi({
             url: "/testing",
             method: "GET",
             params: {
-              username: credentials.username,
+              user: credentials.username,
               password: credentials.password,
             },
           };
