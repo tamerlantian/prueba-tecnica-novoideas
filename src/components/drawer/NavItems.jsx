@@ -33,7 +33,7 @@ const NavItems = () => {
       <Toolbar />
       <Divider />
       <List>
-        {links.map(({ text, icon, link }, index) => (
+        {links.map(({ text, icon, link }) => (
           <ListItem key={text} disablePadding>
             <ListItemButton
               component={NavLink}

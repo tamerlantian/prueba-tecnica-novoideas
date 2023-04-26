@@ -1,9 +1,12 @@
+import { Typography } from "@mui/material";
 import React from "react";
 
 const Home = () => {
   return (
     <div>
-      <h1>Dashboard</h1>
+      <Typography variant="h4" sx={{ fontWeight: "bold" }}>
+        Dashboard
+      </Typography>
     </div>
   );
 };

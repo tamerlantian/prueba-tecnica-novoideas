@@ -6,7 +6,8 @@ import { useLoginMutation } from "../store/apis/authApi";
 const Login = () => {
   const [login, results] = useLoginMutation();
 
-  if (results?.data === "Usuario autenticado") {
+  if (results.data === "Usuario autenticado") {
+    console.log(results);
     return <Navigate replace to="/dashboard" />;
   }
 

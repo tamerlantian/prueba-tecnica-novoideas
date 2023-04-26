@@ -1,6 +1,7 @@
 import React from "react";
 import { useFetchChatsQuery } from "../store";
 import { getMessageBubble } from "./getMessageBubble";
+import { Typography } from "@mui/material";
 
 const Chat = () => {
   // get credentials from localstorage
@@ -27,7 +28,9 @@ const Chat = () => {
   }
   return (
     <div>
-      <h1>Chat</h1>
+      <Typography variant="h4" sx={{ fontWeight: "bold" }}>
+        Chat
+      </Typography>
       <div className="chat__container">{content}</div>
     </div>
   );

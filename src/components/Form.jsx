@@ -47,7 +47,12 @@ const Form = ({ action }) => {
         />
       </FormControl>
 
-      <Button className="form__button" variant="contained" type="submit">
+      <Button
+        sx={{ fontWeight: "bold" }}
+        className="form__button"
+        variant="contained"
+        type="submit"
+      >
         Login
       </Button>
     </form>
