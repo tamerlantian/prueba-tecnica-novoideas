@@ -4,6 +4,7 @@ import {
   createRoutesFromElements,
   RouterProvider,
   Route,
+  Navigate,
 } from "react-router-dom";
 import { Login, DashboardLayout } from "./pages";
 import { Chat, Home, Logout } from "./components";
@@ -19,6 +20,7 @@ const router = createBrowserRouter(
         <Route path="chat" element={<Chat />} />
       </Route>
       <Route path="/logout" element={<Logout />} />
+      <Route path="*" element={<Navigate to="/login" />} />
     </>
   )
 );
