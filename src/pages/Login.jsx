@@ -6,17 +6,16 @@ import { useLoginMutation } from "../store/apis/authApi";
 const Login = () => {
   const [login, results] = useLoginMutation();
 
-  if (results?.data === "Usuario autenticado") {
-    console.log("redirect");
+  if (results.data === "Usuario autenticado") {
+    console.log(results);
     return <Navigate replace to="/dashboard" />;
   }
 
   return (
-    <div>
-      <h1>Login</h1>
-      <div>
+    <div className="container">
+      <main className="login">
         <Form action={login} />
-      </div>
+      </main>
     </div>
   );
 };
