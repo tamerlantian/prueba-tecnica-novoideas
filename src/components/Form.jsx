@@ -1,6 +1,8 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setUsername, setPassword, reset } from "../store";
+import Button from "@mui/material/Button";
+import { FormControl, TextField } from "@mui/material";
 
 const Form = ({ action }) => {
   const { username, password } = useSelector((state) => {
@@ -9,6 +11,9 @@ const Form = ({ action }) => {
 
   const dispatch = useDispatch();
 
+  // set credentials to localstorage
+  // dispatch credentials
+  // dispatch function to clean input fields
   const handleSubmit = (e) => {
     e.preventDefault();
     localStorage.setItem("username", username);
@@ -18,26 +23,33 @@ const Form = ({ action }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="user">Username</label>
-        <input
+    <form className="form" onSubmit={handleSubmit}>
+      <p className="form__name">Login</p>
+      <FormControl className="form__group">
+        <TextField
+          label="username"
+          variant="outlined"
+          className="form__input"
           onChange={(e) => dispatch(setUsername(e.target.value))}
           type="text"
-          placeholder="username"
           value={username}
+          margin="normal"
         />
-        <label htmlFor="password">Password</label>
-        <input
+      </FormControl>
+      <FormControl className="form__group">
+        <TextField
+          label="password"
+          className="form__input"
           onChange={(e) => dispatch(setPassword(e.target.value))}
           type="password"
-          placeholder="password"
           value={password}
+          margin="dense"
         />
-      </div>
-      <div>
-        <input type="submit" value="login" />
-      </div>
+      </FormControl>
+
+      <Button className="form__button" variant="contained" type="submit">
+        Login
+      </Button>
     </form>
   );
 };

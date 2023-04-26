@@ -1,16 +1,13 @@
 import React from "react";
-import { Navbar } from "../components";
+import {  ResponsiveDrawer } from "../components";
 import { Outlet } from "react-router-dom";
 
 const DashboardLayout = () => {
   return (
-    <div>
-      <header>
-        <Navbar />
-      </header>
-      <main>
+    <div className="dashboard">
+      <ResponsiveDrawer>
         <Outlet />
-      </main>
+      </ResponsiveDrawer>
     </div>
   );
 };

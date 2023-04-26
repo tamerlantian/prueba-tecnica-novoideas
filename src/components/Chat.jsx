@@ -1,7 +1,9 @@
 import React from "react";
 import { useFetchChatsQuery } from "../store";
+import { getMessageBubble } from "./getMessageBubble";
 
 const Chat = () => {
+  // get credentials from localstorage
   const credentials = {
     username: localStorage.getItem("username"),
     password: localStorage.getItem("password"),
@@ -18,8 +20,7 @@ const Chat = () => {
     content = data.map(({ sender, message }, i) => {
       return (
         <React.Fragment key={i}>
-          <div>{sender}</div>
-          <div>{message}</div>
+          {getMessageBubble(sender, message)}
         </React.Fragment>
       );
     });
@@ -27,7 +28,7 @@ const Chat = () => {
   return (
     <div>
       <h1>Chat</h1>
-      <div>{content}</div>
+      <div className="chat__container">{content}</div>
     </div>
   );
 };

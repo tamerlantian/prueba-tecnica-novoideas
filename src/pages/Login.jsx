@@ -7,16 +7,14 @@ const Login = () => {
   const [login, results] = useLoginMutation();
 
   if (results?.data === "Usuario autenticado") {
-    console.log("redirect");
     return <Navigate replace to="/dashboard" />;
   }
 
   return (
-    <div>
-      <h1>Login</h1>
-      <div>
+    <div className="container">
+      <main className="login">
         <Form action={login} />
-      </div>
+      </main>
     </div>
   );
 };
